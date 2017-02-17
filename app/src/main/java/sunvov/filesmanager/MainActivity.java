@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
     private static final String tag = MainActivity.class.getName();
-    private ListView mDeviceList;
+    private ListView mFileList;
     private TextView mEmptyView;
     private FileManagerService mService;
 
@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
             mService.setUploadListLisenter(new FileManagerService.FileUploadListener() {
                 @Override
                 public void onTaskUploadlistFinished() {
-                    FileListAdapter adapter = (FileListAdapter) mDeviceList.getAdapter();
+                    FileListAdapter adapter = (FileListAdapter) mFileList.getAdapter();
                     adapter.notifyDataSetChanged();
                 }
             });
@@ -46,14 +46,12 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mDeviceList = (ListView) findViewById(R.id.device_list);
+        mFileList = (ListView) findViewById(R.id.device_list);
         mEmptyView = (TextView) findViewById(R.id.list_empty);
         initActionBar();
         initDeviceList();
 
         bindFileService();
-
-        Log.d(tag,"Android version info "+ Build.VERSION.SDK_INT);
     }
 
     private void bindFileService() {
@@ -64,14 +62,14 @@ public class MainActivity extends Activity {
 
     private void serviceConnect() {
         String current_path  = getCurrentPath();
-        FileListAdapter adapter = new FileListAdapter(MainActivity.class.getName(),mService,current_path);
-        mDeviceList.setAdapter(adapter);
+        FileListAdapter adapter = new FileListAdapter(this,mService.getmFileListManager(),current_path);
+        mFileList.setAdapter(adapter);
         mService.loadFileList(current_path);
     }
 
     private void initDeviceList() {
-        if (null != mDeviceList) {
-            mDeviceList.setEmptyView(mEmptyView);
+        if (null != mFileList) {
+            mFileList.setEmptyView(mEmptyView);
         }
     }
 
