@@ -6,7 +6,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
@@ -16,7 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-    private static final String tag = MainActivity.class.getName();
+    private static final String TAG = MainActivity.class.getName();
     private ListView mFileList;
     private TextView mEmptyView;
     private FileManagerService mService;
@@ -28,11 +27,11 @@ public class MainActivity extends Activity {
             mService.setUploadListLisenter(new FileManagerService.FileUploadListener() {
                 @Override
                 public void onTaskUploadlistFinished() {
+                    Log.d(TAG, "onTaskUploadlistFinished");
                     FileListAdapter adapter = (FileListAdapter) mFileList.getAdapter();
                     adapter.notifyDataSetChanged();
                 }
             });
-
             serviceConnect();
         }
 
@@ -61,8 +60,8 @@ public class MainActivity extends Activity {
     }
 
     private void serviceConnect() {
-        String current_path  = getCurrentPath();
-        FileListAdapter adapter = new FileListAdapter(this,mService.getmFileListManager(),current_path);
+        String current_path = getCurrentPath();
+        FileListAdapter adapter = new FileListAdapter(this,FilesListManager.getInstance(), current_path);
         mFileList.setAdapter(adapter);
         mService.loadFileList(current_path);
     }
@@ -77,7 +76,7 @@ public class MainActivity extends Activity {
         ActionBar actionBar = getActionBar();
 
         if (null != actionBar) {
-            Log.d(tag, "action is not null");
+            Log.d(TAG, "action is not null");
             LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View customActionBar = layoutInflater.inflate(R.layout.actionbar, null);
 
@@ -89,7 +88,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    private String getCurrentPath(){
+    private String getCurrentPath() {
 
         return MoutManager.ROOT_PATH;
     }

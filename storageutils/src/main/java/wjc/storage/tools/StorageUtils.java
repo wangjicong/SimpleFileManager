@@ -17,7 +17,6 @@ public class StorageUtils {
 
     public static List<StorageInfo> listAvaliableStorage(Context context){
         List<StorageInfo> storageInfos = new ArrayList<>();
-        ArrayList storagges = new ArrayList();
         StorageManager storageManager = (StorageManager) context.getSystemService(Context.STORAGE_SERVICE);
         try {
             Class<?>[] paramClasses = {};

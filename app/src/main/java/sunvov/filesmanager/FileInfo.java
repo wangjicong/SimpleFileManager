@@ -9,11 +9,12 @@ public class FileInfo {
     private String filename;
     private String path;
     private String absolutePath;
-    private String isDir;
+    private boolean isDir;
     private String type;
     private long last_modify_time;
     private long size;
-
+    private boolean mIsExternal;
+    private boolean mIsMounted;
     public String getFilename() {
         return filename;
     }
@@ -38,11 +39,11 @@ public class FileInfo {
         this.absolutePath = absolutePath;
     }
 
-    public String getIsDir() {
+    public boolean getIsDir() {
         return isDir;
     }
 
-    public void setIsDir(String isDir) {
+    public void setIsDir(boolean isDir) {
         this.isDir = isDir;
     }
 
@@ -68,5 +69,21 @@ public class FileInfo {
 
     public void setSize(long size) {
         this.size = size;
+    }
+
+    public boolean ismIsExternal() {
+        return mIsExternal;
+    }
+
+    public void setmIsExternal(boolean mIsExternal) {
+        this.mIsExternal = mIsExternal;
+    }
+
+    public boolean ismIsMounted() {
+        return mIsMounted;
+    }
+
+    public void setmIsMounted(boolean mIsMounted) {
+        this.mIsMounted = mIsMounted;
     }
 }

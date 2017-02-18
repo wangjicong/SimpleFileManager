@@ -2,6 +2,7 @@ package sunvov.filesmanager;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 /**
  * Created by Administrator on 2017/2/15 0015.
@@ -22,6 +23,7 @@ public class LoadFilesListTask extends AsyncTask<Void,Void,Integer> {
     @Override
     protected Integer doInBackground(Void... voids) {
         if (MoutManager.isRootPath(mPath)){
+            Log.d(TAG,"wangjicong xxxxx");
             MoutManager.getInstance(mContext).updateMountPointSpaceInfo();
             return 1;
         }

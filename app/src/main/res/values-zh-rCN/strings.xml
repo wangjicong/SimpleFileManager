@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="external">外部存储</string>
+    <string name="internal">内部存储</string>
+    <string name="total_size_hint">总空间:%1$s</string>
+    <string name="free_size_hint">剩余空间:%1$s</string>
+</resources>

@@ -48,12 +48,4 @@ public class FileManagerService extends Service {
             mListener = listLisenter;
         }
     }
-
-    public FilesListManager getmFileListManager() {
-        return mFileListManager;
-    }
-
-    public void setmFileListManager(FilesListManager mFileListManager) {
-        this.mFileListManager = mFileListManager;
-    }
 }

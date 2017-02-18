@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SunvovFilesManager</string>
+    <string name="external">External</string>
+    <string name="internal" >Internal</string>
+    <string name="total_size_hint">Total size :%1$s</string>
+    <string name="free_size_hint">Free size :%1$s</string>
 </resources>

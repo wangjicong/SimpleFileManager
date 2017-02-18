@@ -5,35 +5,38 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:background="@mipmap/ic_launcher"
+        android:id="@+id/icon"
         android:layout_width="wrap_content"
-        android:layout_margin="10dp"
         android:layout_height="wrap_content"
-        android:id="@+id/icon" />
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@mipmap/ic_launcher" />
 
     <RelativeLayout
-        android:layout_margin="10dp"
-        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Name"
             android:id="@+id/name"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="1.0KB"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="Name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/black" />
+
+        <TextView
             android:id="@+id/size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/name"
-            android:layout_alignParentStart="true" />
+            android:text="1.0KB"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/black" />
     </RelativeLayout>
 
 </LinearLayout>
